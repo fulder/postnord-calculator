@@ -10,10 +10,8 @@ function calculateType() {
 
 function normalLetter(height, width, depth) {
     const dims = [height, width, depth];
-    for each (d in dims) {
-        if (d > 60) {
-            return false;
-        }
+    if (Math.max(dims) > 60) {
+        return false;
     }
 
     if (height + width + depth > 90) {
