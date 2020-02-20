@@ -1,9 +1,9 @@
 function calculateType() {
-    const height = document.getElementById("height_field").value;
-    const width = document.getElementById("width_field").value;
-    const depth = document.getElementById("depth_field").value;
+    const height = parseInt(document.getElementById("height_field").value);
+    const width = parseInt(document.getElementById("width_field").value);
+    const depth = parseInt(document.getElementById("depth_field").value);
 
-    if normalLetter(height, width, depth) {
+    if (normalLetter(height, width, depth)) {
         console.log("NORMAL LETTER")
     }
 }
