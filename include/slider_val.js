@@ -5,5 +5,8 @@ heightSlider.oninput = function() {
     heightField.value = this.value;
 }
 heightField.oninput = function() {
-    heightSlider.value = this.value
+    heightSlider.value = this.value;
+    if (this.value === "") {
+        heightSlider.value = 0;
+    }
 }
