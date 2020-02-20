@@ -1,6 +1,9 @@
 const heightSlider = document.getElementById("height_slider");
-const heightFIeld = document.getElementById("height_field");
+const heightField = document.getElementById("height_field");
 
 heightSlider.oninput = function() {
-    heightFIeld.value = this.value;
+    heightField.value = this.value;
+}
+heightField.oninput = function() {
+    heightSlider.value = this.value
 }
