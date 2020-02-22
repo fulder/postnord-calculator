@@ -17,6 +17,11 @@ function normalLetter(height, width, depth) {
     if (height + width + depth > 90) {
         return false;
     }
-    if ()
+
+
+    if (height * width * depth / Math.min(dims) < 9 * 14) {
+        return false;
+    }
+
     return true;
 }
