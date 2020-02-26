@@ -45,3 +45,12 @@ function normalLetterCost(height, width, depth, weight) {
     const cost = stampsCount * stampsPrice;
     return `<h1>Välj normalt brev. Antal frimärken: ${stampsCount}. Pris: ${cost} SEK<h1><h5>Referens: <a href="https://www.postnord.se/siteassets/pdf/ovrigt/portoguide_privat.pdf">https://www.postnord.se/siteassets/pdf/ovrigt/portoguide_privat.pdf</a><h5>`;
 }
+
+function boughtEnvelope(height, width, depth, weight) {
+    const dims = [height, width, depth];
+    dims.sort()
+
+    if (weigth > 10 && dims[2] <= 52 && dims[1] <= 320 && dims[0] <= 12) {
+        return "<h1>Väl Karton XL. Pris 190 SEK<h1>"
+    }
+}
