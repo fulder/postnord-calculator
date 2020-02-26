@@ -14,6 +14,10 @@ function calculateType() {
 }
 
 function normalLetterCost(height, width, depth, weight) {
+    if (weight > 250) {
+        return;
+    }
+
     const dims = [height, width, depth];
     if (Math.max(dims) > 60) {
         return;
