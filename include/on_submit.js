@@ -68,21 +68,58 @@ function boughtEnvelope(height, width, depth, weight) {
     }
 
     // S, M, L, 2 kg envelopes
-    if (weight <= 2000 && dims[0] <= 3) {
+    if (weight <= 2000 && d[0] <= 3) {
         const refUrl = "https://www.postnord.se/skicka-forsandelser/priser-och-villkor/forpackningar-med-porto"
         const refText = `<h5>Referens: <a href="${refUrl}">${refUrl}</a><h5>`
 
         let infoText = ""
-        if (dims[1] <= 13 && dims[2] <= 19) {
+        if (d[1] <= 13 && d[2] <= 19) {
             infoText = "<h1>Välj Blå påse S. Pris 42 SEK<h1>"
         }
-        else if (dims[1] <= 19 && dims[2] <= 24) {
+        else if (d[1] <= 19 && d[2] <= 24) {
             infoText = "<h1>Välj Blå påse M. Pris 59 SEK<h1>"
         }
-        else if (dims[1] <= 24 && dims[2] <= 34) {
+        else if (d[1] <= 24 && d[2] <= 34) {
             infoText = "<h1>Välj Blå påse L. Pris 79 SEK<h1>"
         }
 
+        return `${infoText}${refText}`;
+    }
+}
+
+function buyOnline(height, width, depth, weight) {
+    const d = [height, width, depth];
+    d.sort((a, b) => a- b )
+
+    const refUrl = "https://portal.postnord.com/skickadirekt/#"
+    const refText = `<h5>Referens: <a href="${refUrl}">${refUrl}</a><h5>`
+
+    if (weight <= 1000 && height + width + depth <= 90 && d[2] <= 60 && d[0] >= 2 && d[1] > 9 && d[3] > 14) {
+        const infoText = "<h1>Köp frakt online, paket Light. Pris: 63 SEK</h1>"
+        return `${infoText}${refText}`;
+    }
+    if (weight <= 2000 && height + width + depth <= 90 && d[2] <= 60 && d[0] >= 2 && d[1] > 9 && d[3] > 14) {
+        const infoText = "<h1>Köp frakt online, paket Small. Pris: 95 SEK</h1>"
+        return `${infoText}${refText}`;
+    }
+    if (weight <= 3000 && height + width + depth <= 110 && d[0] >= 2 && d[1] > 9 && d[3] > 14) {
+        const infoText = "<h1>Köp frakt online, paket Medium. Pris: 122 SEK</h1>"
+        return `${infoText}${refText}`;
+    }
+    if (weight <= 5000 && height + width + depth <= 110 && d[0] >= 2 && d[1] > 9 && d[3] > 14) {
+        const infoText = "<h1>Köp frakt online, paket Large. Pris: 149 SEK</h1>"
+        return `${infoText}${refText}`;
+    }
+    if (weight <= 10000 && height + width + depth <= 300 && d[2] <= 120) {
+        const infoText = "<h1>Köp frakt online, paket X Large. Pris: 199 SEK</h1>"
+        return `${infoText}${refText}`;
+    }
+    if (weight <= 15000 && height + width + depth <= 300 && d[2] <= 120) {
+        const infoText = "<h1>Köp frakt online, paket XX Large. Pris: 240 SEK</h1>"
+        return `${infoText}${refText}`;
+    }
+    if (weight <= 20000 && height + width + depth <= 300 && d[2] <= 120) {
+        const infoText = "<h1>Köp frakt online, paket X Large. Pris: 199 SEK</h1>"
         return `${infoText}${refText}`;
     }
 }
