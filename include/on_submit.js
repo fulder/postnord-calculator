@@ -24,8 +24,14 @@ function normalLetter(height, width, depth) {
     dims.splice(dims.indexOf(firstMax), 1)
     const secondMax = Math.max(...dims)
     if (firstMax < 14 && secondMax < 9) {
-        return false
+        return;
     }
 
-    return true;
+    if (weight < 50) {
+        weight = 50;
+    }
+    const stampsCount = parseInt(weight/50);
+    const stampsPrice = 11
+    const cost = stampsCount * stampsPrice;
+    return `<h1>Välj normalt brev. Antal frimärken: ${stampsCount}. Pris: ${cost} SEK<h1><h5>Referens: <a href="https://www.postnord.se/siteassets/pdf/ovrigt/portoguide_privat.pdf">https://www.postnord.se/siteassets/pdf/ovrigt/portoguide_privat.pdf</a><h5>`;
 }
