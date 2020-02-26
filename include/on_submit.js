@@ -4,11 +4,14 @@ function calculateType() {
     const depth = parseInt(document.getElementById("depth_field").value);
     const weight = parseInt(document.getElementById("weight_field").value);
 
-    let letter = normalLetterCost(height, width, depth, weight);
-    if (letter !== undefined) {
-        document.getElementById("result").innerHTML = letter;
+    let res = normalLetterCost(height, width, depth, weight);
+    if (res !== undefined) {
+        document.getElementById("result").innerHTML = res;
     }
-    else {
+
+
+
+    if (res === undefined) {
         document.getElementById("result").innerHTML = "<h1>Error</h1>";
     }
 }
