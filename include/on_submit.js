@@ -19,9 +19,10 @@ function normalLetter(height, width, depth) {
     }
 
     // Check if the maximal 2D dimension is in the minimal requirement 9 x 14 cm
-    const firstMax = Math.max(dims)
-    const secondMax = Math.max(dims.splice(dims.indexOf(firstMax)))
-    if (firstMax <= 14 && secondMax <= 9) {
+    const firstMax = Math.max(...dims)
+    dims.splice(dims.indexOf(firstMax), 1)
+    const secondMax = Math.max(...dims)
+    if (firstMax < 14 && secondMax < 9) {
         return false
     }
 
