@@ -4,7 +4,8 @@ function calculateType() {
     const depth = parseInt(document.getElementById("depth_field").value);
 
     if (normalLetter(height, width, depth)) {
-        console.log("NORMAL LETTER")
+        console.log("NORMAL")
+        document.getElementById("result").innerHTML = "<h1>Välj normalt brev</h1>"
     }
 }
 
