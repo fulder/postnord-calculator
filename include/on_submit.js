@@ -26,7 +26,7 @@ function normalLetterCost(height, width, depth, weight) {
     }
 
     const dims = [height, width, depth];
-    dims.sort()
+    dims.sort((a, b) => a- b )
 
     if (Math.max(dims) > 60) {
         return;
@@ -57,7 +57,7 @@ function normalLetterCost(height, width, depth, weight) {
 
 function boughtEnvelope(height, width, depth, weight) {
     const dims = [height, width, depth];
-    dims.sort()
+    dims.sort((a, b) => a- b )
 
     if (weight > 10 * 1000 && dims[2] <= 52 && dims[1] <= 320 && dims[0] <= 12) {
         const infoText = "<h1>Väl Karton XL. Pris 190 SEK<h1>"
