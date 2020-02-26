@@ -22,6 +22,8 @@ function normalLetterCost(height, width, depth, weight) {
     }
 
     const dims = [height, width, depth];
+    dims.sort()
+
     if (Math.max(dims) > 60) {
         return;
     }
@@ -31,10 +33,7 @@ function normalLetterCost(height, width, depth, weight) {
     }
 
     // Check if the maximal 2D dimension is in the minimal requirement 9 x 14 cm
-    const firstMax = Math.max(...dims)
-    dims.splice(dims.indexOf(firstMax), 1)
-    const secondMax = Math.max(...dims)
-    if (firstMax < 14 && secondMax < 9) {
+    if (dims[2] < 14 && dims[1] < 9) {
         return;
     }
 
