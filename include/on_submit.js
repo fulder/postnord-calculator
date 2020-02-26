@@ -98,22 +98,27 @@ function buyOnline(height, width, depth, weight) {
     const d = [height, width, depth];
     d.sort((a, b) => a- b )
 
+    // min requirements
+    if (d[0] < 2 && d[1] < 9 && d[3] < 14) {
+        return
+    }
+
     const refUrl = "https://portal.postnord.com/skickadirekt/#"
     const refText = `<h5>Referens: <a href="${refUrl}">${refUrl}</a><h5>`
 
-    if (weight <= 1000 && height + width + depth <= 90 && d[2] <= 60 && d[0] >= 2 && d[1] > 9 && d[3] > 14) {
+    if (weight <= 1000 && height + width + depth <= 90) {
         const infoText = "<h1>Köp frakt online, paket Light. Pris: 63 SEK</h1>"
         return `${infoText}${refText}`;
     }
-    if (weight <= 2000 && height + width + depth <= 90 && d[2] <= 60 && d[0] >= 2 && d[1] > 9 && d[3] > 14) {
+    if (weight <= 2000 && height + width + depth <= 90) {
         const infoText = "<h1>Köp frakt online, paket Small. Pris: 95 SEK</h1>"
         return `${infoText}${refText}`;
     }
-    if (weight <= 3000 && height + width + depth <= 110 && d[0] >= 2 && d[1] > 9 && d[3] > 14) {
+    if (weight <= 3000 && height + width + depth <= 110) {
         const infoText = "<h1>Köp frakt online, paket Medium. Pris: 122 SEK</h1>"
         return `${infoText}${refText}`;
     }
-    if (weight <= 5000 && height + width + depth <= 110 && d[0] >= 2 && d[1] > 9 && d[3] > 14) {
+    if (weight <= 5000 && height + width + depth <= 110) {
         const infoText = "<h1>Köp frakt online, paket Large. Pris: 149 SEK</h1>"
         return `${infoText}${refText}`;
     }
