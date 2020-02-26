@@ -8,9 +8,9 @@ function calculateType() {
     if (letter !== undefined) {
         document.getElementById("result").innerHTML = letter;
     }
-
-
-
+    else {
+        document.getElementById("result").innerHTML = "<h1>Error</h1>";
+    }
 }
 
 function normalLetterCost(height, width, depth, weight) {
