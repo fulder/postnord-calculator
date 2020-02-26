@@ -2,21 +2,25 @@ function calculateType() {
     const height = parseInt(document.getElementById("height_field").value);
     const width = parseInt(document.getElementById("width_field").value);
     const depth = parseInt(document.getElementById("depth_field").value);
+    const weight = parseInt(document.getElementById("weight_field").value);
 
-    if (normalLetter(height, width, depth)) {
-        console.log("NORMAL")
-        document.getElementById("result").innerHTML = "<h1>Välj normalt brev</h1>"
+    let letter = normalLetterCost(height, width, depth, weight);
+    if (letter !== undefined) {
+        document.getElementById("result").innerHTML = letter;
     }
+
+
+
 }
 
-function normalLetter(height, width, depth) {
+function normalLetterCost(height, width, depth, weight) {
     const dims = [height, width, depth];
     if (Math.max(dims) > 60) {
-        return false;
+        return;
     }
 
     if (height + width + depth > 90) {
-        return false;
+        return;
     }
 
     // Check if the maximal 2D dimension is in the minimal requirement 9 x 14 cm
