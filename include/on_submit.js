@@ -7,16 +7,23 @@ function calculateType() {
     let res = normalLetterCost(height, width, depth, weight);
     if (res !== undefined) {
         document.getElementById("result").innerHTML = res;
+        return;
     }
 
     res = boughtEnvelope(height, width, depth, weight);
     if (res !== undefined) {
         document.getElementById("result").innerHTML = res;
+        return;
     }
 
+    res = buyOnline(height, width, depth, weight);
+    if (res !== undefined) {
+        document.getElementById("result").innerHTML = res;
+        return;
+    }
 
     if (res === undefined) {
-        document.getElementById("result").innerHTML = "<h1>Error</h1>";
+        document.getElementById("result").innerHTML = "<h1>Kunde inte hitta bra pris. Kan alltid skickas som vanligt brev</h1>";
     }
 }
 
