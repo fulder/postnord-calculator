@@ -9,6 +9,10 @@ function calculateType() {
         document.getElementById("result").innerHTML = res;
     }
 
+    res = boughtEnvelope(height, width, depth, weight);
+    if (res !== undefined) {
+        document.getElementById("result").innerHTML = res;
+    }
 
 
     if (res === undefined) {
@@ -55,7 +59,11 @@ function boughtEnvelope(height, width, depth, weight) {
     const dims = [height, width, depth];
     dims.sort()
 
-    if (weigth > 10 && dims[2] <= 52 && dims[1] <= 320 && dims[0] <= 12) {
-        return "<h1>Väl Karton XL. Pris 190 SEK<h1>"
+    if (weight > 10 * 1000 && dims[2] <= 52 && dims[1] <= 320 && dims[0] <= 12) {
+        const infoText = "<h1>Väl Karton XL. Pris 190 SEK<h1>"
+        const refUrl = "https://www.postnord.se/skicka-forsandelser/priser-och-villkor/kartong-xl"
+        const refText = `<h5>Referens: <a href="${refUrl}">${refUrl}</a><h5>`
+
+        return `${infoText}${refText}`;
     }
 }
