@@ -66,4 +66,23 @@ function boughtEnvelope(height, width, depth, weight) {
 
         return `${infoText}${refText}`;
     }
+
+    // S, M, L, 2 kg envelopes
+    if (weight <= 2000 && dims[0] <= 3) {
+        const refUrl = "https://www.postnord.se/skicka-forsandelser/priser-och-villkor/forpackningar-med-porto"
+        const refText = `<h5>Referens: <a href="${refUrl}">${refUrl}</a><h5>`
+
+        let infoText = ""
+        if (dims[1] <= 13 && dims[2] <= 19) {
+            infoText = "<h1>Välj Blå påse S. Pris 42 SEK<h1>"
+        }
+        else if (dims[1] <= 19 && dims[2] <= 24) {
+            infoText = "<h1>Välj Blå påse M. Pris 59 SEK<h1>"
+        }
+        else if (dims[1] <= 24 && dims[2] <= 34) {
+            infoText = "<h1>Välj Blå påse L. Pris 79 SEK<h1>"
+        }
+
+        return `${infoText}${refText}`;
+    }
 }
