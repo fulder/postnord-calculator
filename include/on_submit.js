@@ -25,10 +25,10 @@ function normalLetterCost(height, width, depth, weight) {
         return;
     }
 
-    const dims = [height, width, depth];
-    dims.sort((a, b) => a- b )
+    const d = [height, width, depth];
+    d.sort((a, b) => a- b )
 
-    if (Math.max(dims) > 60) {
+    if (Math.max(d) > 60) {
         return;
     }
 
@@ -37,7 +37,7 @@ function normalLetterCost(height, width, depth, weight) {
     }
 
     // Check if the maximal 2D dimension is in the minimal requirement 9 x 14 cm
-    if (dims[2] < 14 && dims[1] < 9) {
+    if (d[2] < 14 && d[1] < 9) {
         return;
     }
 
@@ -56,10 +56,10 @@ function normalLetterCost(height, width, depth, weight) {
 }
 
 function boughtEnvelope(height, width, depth, weight) {
-    const dims = [height, width, depth];
-    dims.sort((a, b) => a- b )
+    const d = [height, width, depth];
+    d.sort((a, b) => a- b )
 
-    if (weight > 10 * 1000 && dims[2] <= 52 && dims[1] <= 320 && dims[0] <= 12) {
+    if (weight > 10 * 1000 && d[2] <= 52 && d[1] <= 320 && d[0] <= 12) {
         const infoText = "<h1>Väl Karton XL. Pris 190 SEK<h1>"
         const refUrl = "https://www.postnord.se/skicka-forsandelser/priser-och-villkor/kartong-xl"
         const refText = `<h5>Referens: <a href="${refUrl}">${refUrl}</a><h5>`
